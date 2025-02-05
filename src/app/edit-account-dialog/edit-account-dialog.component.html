@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>{{ data ? 'Edit Account' : 'Add New Account' }}</h2>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+ 
+  <mat-form-field>
+    <mat-label>Account Number</mat-label>
+    <input matInput formControlName="accountnumber" />
+    <mat-error *ngIf="editForm.get('accountnumber')?.hasError('required')">Account Number</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Account Type</mat-label>
+    <input matInput formControlName="accounttype" />
+    <mat-error *ngIf="editForm.get('accounttype')?.hasError('required')">Account Type</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Balance</mat-label>
+    <input matInput formControlName="balance" />
+    <mat-error *ngIf="editForm.get('balance')?.hasError('required')">balance is required.</mat-error>
+    <mat-error *ngIf="editForm.get('balance')?.hasError('balance')">Invalid balance format.</mat-error>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">
+      {{ data ? 'Save Changes' : 'Add Account' }}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,31 @@
+<h2>Welcome people works!</h2>
+<p>You are logged in!
+<button class="btn btn-primary btn-lg" (click)="addPeople(null)">Add A Person</button></p>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Surname</th>
+        <th>Id Number</th>
+        <th>Account Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.surname }}</td>
+        <td>{{ person.idNumber }}</td>
+        <td>{{ person.accountNumber }}</td>
+        <td>{{ person.email }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editPeople(person)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deletePeople(person)">Delete</button>
+          <button class="btn btn-info btn-sm" (click)="selectPeople(person)">Select</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

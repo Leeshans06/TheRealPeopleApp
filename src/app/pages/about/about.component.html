@@ -1,0 +1,50 @@
+<h1>System Overview</h1>
+
+<p>This system is comprised of three main components:</p>
+    -SQL Database<br>
+    -C# API Backend<br>
+    -Angular Frontend
+    <br><br>
+<h2>SQL Database</h2>
+<p>To set up the SQL database:</p>
+<ol>
+    <li>Execute the SQL file (<code>sqlTables_storedProcedures.sql</code>) on localhost.</li>
+</ol>
+
+<h2>C# API Backend</h2>
+<p>To configure the C# API Backend:</p>
+<ol>
+    <li>Update the database connection string in <code>appSettings.json</code> at line 10. For example:<br></li>
+   <br>
+   <code>"DefaultConnection": "Server=IG-UMH-LPT>-0655\\MSSQLSERVER_MAIN;Database=peoplesaccounts;Trusted_Connection=True;TrustServerCertificate=True;" </code>
+<br><br>
+
+    <li>Run the C# API Backend using IIS Express.</li>
+    <li>Note the port number on which the application is running.</li>
+</ol>
+
+<h2>Swagger Documentation</h2>
+<p>The API's Swagger documentation can be accessed at:</p>
+<a href="https://localhost:44330/swagger/index.html" target="_blank">https://localhost:44330/swagger/index.html</a>
+
+<h2>Angular Frontend</h2>
+<p>To configure the Angular Frontend:</p>
+<ol>
+    <li>If needed, update the service endpoint ports in the following files:</li>
+    <br><code>accounts.service.ts</code><br>
+        <code>people.service.ts</code><br>
+        <code>transactions.service.ts</code><br>
+   
+    <li>For example, update the API URL Port to:</li>
+    <pre>https://localhost:44330/api/People</pre>
+    <li>Ensure that the port on the endpoint matches the port where the C# API Backend is running.</li>
+    <li>Open the command line and navigate to the root directory of the Angular app.</li>
+    <li>Run the following command to start the Angular development server:</li>
+    <pre>ng serve</pre>
+</ol>
+
+<div class="container">
+    <h2>Login Creds:</h2>
+    <p class="login-info"><strong>Username:</strong> test<br>
+   <strong>Password:</strong> testpass</p>
+</div>

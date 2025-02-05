@@ -1,0 +1,36 @@
+<h2>Accounts</h2>
+<button class="btn btn-success mb-3" (click)="addAccount()">Add New Account</button>
+<div *ngIf="accounts.length > 0; else noData">
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>           
+            <th>Person Number</th>
+            <th>Account Number</th>
+            <th>Account Type</th>
+            <th>Balance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts">
+            <td>{{ account.id }}</td>        
+            <td>{{ account.person_Id }}</td>   
+            <td>{{ account.account_Number }}</td>
+            <td>{{ account.account_Type }}</td>
+            <td>{{ account.balance }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editAccount(account)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteAccount(account)">Delete</button>
+              <button class="btn btn-info btn-sm" (click)="selectAccount(account)">Select</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  
+  <ng-template #noData>
+    <p>No accounts found for this person.</p>
+  </ng-template>
+  

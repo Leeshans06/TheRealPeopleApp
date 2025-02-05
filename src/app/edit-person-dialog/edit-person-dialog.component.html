@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>{{ data ? 'Edit Person' : 'Add New Person' }}</h2>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+    <mat-error *ngIf="editForm.get('name')?.hasError('required')">Name is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Surname</mat-label>
+    <input matInput formControlName="surname" />
+    <mat-error *ngIf="editForm.get('surname')?.hasError('required')">Surname is required.</mat-error>
+  </mat-form-field>
+
+
+
+  <mat-form-field>
+    <mat-label>ID Number</mat-label>
+    <input matInput formControlName="idnumber" />
+    <mat-error *ngIf="editForm.get('idnumber')?.hasError('required')">ID Number is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Account Number</mat-label>
+    <input matInput formControlName="accountnumber" />
+    <mat-error *ngIf="editForm.get('accountnumber')?.hasError('required')">Account Number is required.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="editForm.get('email')?.hasError('required')">Email is required.</mat-error>
+    <mat-error *ngIf="editForm.get('email')?.hasError('email')">Invalid email format.</mat-error>
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid">
+      {{ data ? 'Save Changes' : 'Add Person' }}
+    </button>
+  </div>
+</form>

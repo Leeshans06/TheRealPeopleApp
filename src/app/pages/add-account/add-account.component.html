@@ -1,0 +1,32 @@
+<h2>Add New Account</h2>
+
+<form [formGroup]="addAccountForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Account Number</mat-label>
+    <input matInput formControlName="accountnumber" />
+    <mat-error *ngIf="addAccountForm.get('accountnumber')?.hasError('required')">
+      Account Number is required.
+    </mat-error>
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <mat-label>Account Type</mat-label>
+    <input matInput formControlName="accounttype" />
+    <mat-error *ngIf="addAccountForm.get('accounttype')?.hasError('required')">
+      Account Type is required.
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Balance</mat-label>
+    <input matInput formControlName="balance" />
+    <mat-error *ngIf="addAccountForm.get('balance')?.hasError('required')">
+      Balance is required.
+    </mat-error>
+    <mat-error *ngIf="addAccountForm.get('balance')?.hasError('balance')">
+      Invalid balance format.
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit" [disabled]="addAccountForm.invalid">Add Account</button>
+</form>
